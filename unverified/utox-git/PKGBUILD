@@ -1,0 +1,45 @@
+# Maintainer: Madotsuki <madotsuki@cock.li>
+# Contributor: Håvard Pettersson <mail@haavard.me> (Previous maintainer while I was lollygagging.)
+
+_pkgname=utox
+pkgname="${_pkgname}-git"
+pkgver=r1116.gf464141
+pkgrel=1
+
+pkgdesc='Lightweight Tox client'
+arch=('i686' 'x86_64')
+url='https://github.com/notsecure/uTox'
+license=('GPL3')
+
+depends=('tox-git' 'libxrender' 'openal' 'v4l-utils' 'libdbus' 'libxext'
+         'fontconfig' 'desktop-file-utils' 'hicolor-icon-theme' 'filter_audio-git')
+makedepends=('git')
+optdepends=('gtk2: GTK file picker')
+
+provides=("${_pkgname}")
+conflicts=("${_pkgname}")
+
+source=("${pkgname}::git+https://github.com/notsecure/uTox")
+md5sums=('SKIP')
+
+install="${pkgname}.install"
+
+pkgver()
+{
+  cd "${srcdir}/${pkgname}"
+  printf "r$(git rev-list --count HEAD).g$(git rev-parse --short HEAD)"
+}
+
+build()
+{
+  cd "${srcdir}/${pkgname}"
+  make
+}
+
+package()
+{
+  cd "${srcdir}/${pkgname}"
+  make PREFIX=/usr DESTDIR="${pkgdir}" install
+}
+
+

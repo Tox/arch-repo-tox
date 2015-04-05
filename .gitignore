@@ -1,0 +1,7 @@
+## editors
+
+# Vim
+*.swp
+
+# Kwrite / Kate
+*.*.kate-swp

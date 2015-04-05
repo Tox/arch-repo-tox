@@ -1,0 +1,32 @@
+# Maintainer: Florian Hahn <flo@fhahn.com>
+
+pkgname=toxic-git
+pkgdesc='CLI client for tox, a Skype replacement that respects your privacy'
+license=('GPL3')
+pkgver=0.6.0.r10.g5ff1517
+pkgrel=1
+depends=('tox-git' 'libconfig' 'freealut' 'libvpx' 'opus' 'libnotify')
+makedepends=('git')
+conflicts=('toxic')
+provides=('toxic')
+arch=('i686' 'x86_64')
+url=('http://tox.im')
+source=('git+https://github.com/Tox/toxic.git')
+md5sums=('SKIP')
+
+_gitname=toxic
+
+pkgver() {
+    cd "${srcdir}/${_gitname}"
+    git describe --long --tags | sed -r 's/^v//;s/([^-]*-g)/r\1/;s/-/./g'
+}
+
+build() {
+    cd "${srcdir}/${_gitname}"
+    make PREFIX=/usr
+}
+
+package() {
+    cd "${srcdir}/${_gitname}"
+    make PREFIX=/usr DESTDIR="${pkgdir}" install
+}
