@@ -1,10 +1,8 @@
-# Maintainer: Kevin MacMartin <prurigro at gmail dot com>
-# Contributor: Boohbah <boohbah at gmail.com>
-# Contributor: naxuroqa <naxuroqa at gmail.com>
+# Maintainer: ?
 
 _pkgname=tox
 pkgname=$_pkgname-git
-pkgver=r3156.4ad7649
+pkgver=r3301.083bfdd
 pkgrel=1
 pkgdesc='Secure, configuration-free, P2P Skype replacement backend'
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
@@ -18,9 +16,9 @@ depends=(
   'openal-soft-tox'
 )
 makedepends=('git' 'check')
-optdepends=('qtox-git: qt-based frontend'
-            'utox-git: lightweight tox client'
-            'toxic-git: ncurses-based frontend')
+optdepends=('qtox-git: qt-based Tox client'
+            'utox-git: lightweight Tox client'
+            'toxic-git: ncurses-based Tox client')
 conflicts=("$_pkgname")
 provides=("$_pkgname")
 replaces=("$_pkgname")
@@ -34,7 +32,7 @@ pkgver() {
 
 build() {
   cd $_pkgname
-  ./autogen.sh
+  autoreconf -if
   ./configure \
     --prefix=/usr \
     --enable-daemon \
