@@ -6,7 +6,14 @@
 #-----------------------------------------
 
 
-# tox-git
+# filter-audio
+#---------------
+
+# Contributor: Ivan Shapovalov <intelfx100 at gmail dot com>
+# Contributor: Zetok Zalbavar <zetok at openmailbox dot org>
+
+
+# tox
 #-----------
 
 # Contributor: naxuroqa <naxuroqa at gmail.com>
