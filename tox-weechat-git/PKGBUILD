@@ -10,7 +10,10 @@ arch=('i686' 'x86_64')
 url='https://github.com/haavardp/tox-weechat'
 license=('GPL3')
 
-depends=('tox' 'weechat>=1.0.1')
+depends=(
+  'tox'
+  'weechat>=1.0.1'
+)
 makedepends=('git' 'cmake')
 
 provides=("${_pkgname}")
