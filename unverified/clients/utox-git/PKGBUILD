@@ -1,5 +1,4 @@
-# Maintainer: Madotsuki <madotsuki@cock.li>
-# Contributor: Håvard Pettersson <mail@haavard.me> (Previous maintainer while I was lollygagging.)
+# Maintainer: ?
 
 _pkgname=utox
 pkgname="${_pkgname}-git"
@@ -7,12 +6,22 @@ pkgver=r1116.gf464141
 pkgrel=1
 
 pkgdesc='Lightweight Tox client'
-arch=('i686' 'x86_64')
+arch=('i686' 'x86_64' 'arm' 'armv6h' 'armv7h')
 url='https://github.com/notsecure/uTox'
 license=('GPL3')
 
-depends=('tox-git' 'libxrender' 'openal' 'v4l-utils' 'libdbus' 'libxext'
-         'fontconfig' 'desktop-file-utils' 'hicolor-icon-theme' 'filter_audio-git')
+depends=(
+  'desktop-file-utils'
+  'fontconfig'
+  'filter_audio-git'
+  'hicolor-icon-theme'
+  'libdbus'
+  'libxext'
+  'libxrender'
+  'openal'
+  'tox-git'
+  'v4l-utils'
+)
 makedepends=('git')
 optdepends=('gtk2: GTK file picker')
 
@@ -27,7 +36,7 @@ install="${pkgname}.install"
 pkgver()
 {
   cd "${srcdir}/${pkgname}"
-  printf "r$(git rev-list --count HEAD).g$(git rev-parse --short HEAD)"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 build()

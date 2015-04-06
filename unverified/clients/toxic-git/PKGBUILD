@@ -1,15 +1,22 @@
-# Maintainer: Florian Hahn <flo@fhahn.com>
+# Maintainer: ?
 
 pkgname=toxic-git
-pkgdesc='CLI client for tox, a Skype replacement that respects your privacy'
+pkgdesc='CLI Frontend in ncurses for Tox'
 license=('GPL3')
 pkgver=0.6.0.r10.g5ff1517
 pkgrel=1
-depends=('tox-git' 'libconfig' 'freealut' 'libvpx' 'opus' 'libnotify')
+depends=(
+  'freealut'
+  'libconfig'
+  'libnotify'
+  'libvpx'
+  'opus'
+  'tox-git'
+)
 makedepends=('git')
 conflicts=('toxic')
 provides=('toxic')
-arch=('i686' 'x86_64')
+arch=('i686' 'x86_64' 'arm' 'armv6h' 'armv7h')
 url=('http://tox.im')
 source=('git+https://github.com/Tox/toxic.git')
 md5sums=('SKIP')
@@ -18,7 +25,7 @@ _gitname=toxic
 
 pkgver() {
     cd "${srcdir}/${_gitname}"
-    git describe --long --tags | sed -r 's/^v//;s/([^-]*-g)/r\1/;s/-/./g'
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 build() {

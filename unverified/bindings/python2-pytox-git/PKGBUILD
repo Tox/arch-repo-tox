@@ -1,19 +1,24 @@
-# Maintainer: Wei-Ning Huang <aitjcize@gmail.com>
+# Maintainer: ?
+
 pkgname=python2-pytox-git
 _pkgname=PyTox
 pkgver=20140816
 pkgrel=1
-pkgdesc="Python binding for Project-Tox the skype replacement"
-arch=('i686' 'x86_64')
+pkgdesc="Python binding for Project Tox the skype replacement"
+arch=('i686' 'x86_64') # other archs?
 url="https://github.com/aitjcize/PyTox"
 license=('GPL')
 makedepends=(git)
-depends=(python2 tox-git)
+depends=(
+  'python2' 
+  'tox-git'
+)
 source=("git://github.com/aitjcize/${_pkgname}")
 sha256sums=("SKIP")
 
 pkgver() {
-  date '+%Y%m%d'
+  cd ${_pkgname}
+  printf 'r%s.%s' "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 build() {

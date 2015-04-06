@@ -5,17 +5,17 @@ pkgname=$_pkgname-git
 pkgver=r3301.083bfdd
 pkgrel=1
 pkgdesc='Secure, configuration-free, P2P Skype replacement backend'
-arch=('i686' 'x86_64' 'armv6h' 'armv7h')
+arch=('i686' 'x86_64' 'arm' 'armv6h' 'armv7h')
 url='https://tox.im'
 license=('GPL3')
 depends=(
-  'libsodium'
-  'opus'
-  'libvpx'
   'libconfig'
-  'openal-soft-tox'
+  'libsodium'
+  'libvpx'
+  'opus'
+  'openal'
 )
-makedepends=('git' 'check')
+makedepends=('autoconf' 'git' 'check')
 optdepends=('qtox-git: qt-based Tox client'
             'utox-git: lightweight Tox client'
             'toxic-git: ncurses-based Tox client')
