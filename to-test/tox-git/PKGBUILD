@@ -9,8 +9,8 @@ arch=('i686' 'x86_64' 'arm' 'armv6h' 'armv7h')
 url='https://tox.im'
 license=('GPL3')
 depends=(
-  'libconfig'
-  'libsodium'
+  'libconfig>=1.4'
+  'libsodium>=1.0'
   'libvpx'
   'opus'
   'openal'
