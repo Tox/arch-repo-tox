@@ -11,7 +11,7 @@ depends=(
   'libnotify'
   'libvpx'
   'opus'
-  'tox-git'
+  'tox'
 )
 makedepends=('git')
 conflicts=('toxic')
