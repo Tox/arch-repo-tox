@@ -23,7 +23,7 @@ makedepends=('git' 'qt5-tools')
 provides=("$_pkgname")
 conflicts=("$_pkgname")
 install=$pkgname.install
-source=("$_pkgname::git+$url.git")
+source=("$_pkgname::git+https://github.com/tux3/qTox.git")
 sha512sums=('SKIP')
 
 pkgver() {
