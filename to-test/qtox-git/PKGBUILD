@@ -10,14 +10,14 @@ url='https://github.com/tux3/qTox'
 license=('GPL3')
 depends=(
   'desktop-file-utils'
-  'filter_audio-git'
+  'libfilteraudio'
   'libxkbcommon-x11'
   'libxss'
   'opencv'
   'openal'
   'qt5-svg'
   'qrencode'
-  'tox-git>=r3147'
+  'tox'
 )
 makedepends=('git' 'qt5-tools')
 provides=("$_pkgname")
