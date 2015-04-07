@@ -1,4 +1,4 @@
-# Maintainer: Håvard Pettersson <mail at haavard dot me>
+# Maintainer: Håvard Pettersson <mail@haavard.me>
 
 _pkgname=tox-weechat
 pkgname="${_pkgname}-git"
