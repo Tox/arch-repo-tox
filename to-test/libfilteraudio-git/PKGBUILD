@@ -9,11 +9,15 @@ arch=('i686' 'x86_64' 'arm' 'armv6h' 'armv7h')
 url="https://github.com/irungentoo/filter_audio"
 license=('BSD')
 makedepends=('git')
-depends=('openal')
+depends=('glibc')
 provides=("${_pkgname}")
 conflicts=("${_pkgname}")
-source=("${_pkgname}::git://github.com/irungentoo/filter_audio.git")
-sha512sums=('SKIP')
+source=(
+    "${_pkgname}::git://github.com/irungentoo/filter_audio.git"
+    'LICENSE'
+)
+sha512sums=('SKIP'
+            'ab7ea75c03fab3dfc5d452f04a38b42783f646c2e0acaf8494628bfdf6f83e4b04d470e019385de3e89dd57eb8ef6d02daa6256d4ff311cc66f3999b694ef143')
 
 pkgver() {
     cd ${_pkgname}
@@ -21,11 +25,12 @@ pkgver() {
 }
 
 build() {
-	cd ${_pkgname}
-	make
+    cd ${_pkgname}
+    make
 }
 
 package() {
     cd ${_pkgname}
     make DESTDIR="$pkgdir" PREFIX="/usr" install
+    install -Dm644 "$srcdir/LICENSE" "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 }
