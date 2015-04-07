@@ -13,9 +13,8 @@ depends=(
   'libsodium>=1.0'
   'libvpx'
   'opus'
-  'openal'
 )
-makedepends=('autoconf' 'git' 'check')
+makedepends=('git' 'check')
 optdepends=('qtox-git: qt-based Tox client'
             'utox-git: lightweight Tox client'
             'toxic-git: ncurses-based Tox client')
