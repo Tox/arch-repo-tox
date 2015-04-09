@@ -1,4 +1,5 @@
 # Maintainer: Håvard Pettersson <mail@haavard.me>
+# Contributor: Madotsuki <madotsuki at cock dot li>
 
 _pkgname=utox
 pkgname="${_pkgname}-git"
