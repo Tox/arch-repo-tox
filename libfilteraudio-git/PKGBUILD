@@ -11,8 +11,8 @@ url="https://github.com/irungentoo/filter_audio"
 license=('BSD')
 makedepends=('git')
 depends=('glibc')
-provides=("${_pkgname}")
-conflicts=("${_pkgname}")
+provides=("${_pkgname}" 'filter_audio')
+conflicts=("${_pkgname}" 'filter_audio')
 source=(
     "${_pkgname}::git://github.com/irungentoo/filter_audio.git"
     'LICENSE'
