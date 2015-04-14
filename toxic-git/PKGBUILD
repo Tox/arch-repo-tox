@@ -11,7 +11,7 @@ depends=(
   'desktop-file-utils'
   'freealut'
   'libnotify'
-  'tox'
+  'tox-git'
 )
 makedepends=('git')
 conflicts=($_pkgname)

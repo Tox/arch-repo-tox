@@ -14,13 +14,13 @@ license=('GPL3')
 depends=(
   'desktop-file-utils'
   'fontconfig'
-  'libfilteraudio'
+  'libfilteraudio-git'
   'hicolor-icon-theme'
   'libdbus'
   'libxext'
   'libxrender'
   'openal'
-  'tox'
+  'tox-git'
   'v4l-utils'
 )
 makedepends=('git')
