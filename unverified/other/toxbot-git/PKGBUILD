@@ -1,4 +1,5 @@
-# Maintainer: Kevin MacMartin <prurigro at gmail dot com>
+# Maintainer: ?
+# Contributor: Kevin MacMartin <prurigro at gmail dot com>
 
 _pkgname=toxbot
 pkgname=$_pkgname-git
