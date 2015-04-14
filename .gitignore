@@ -5,3 +5,7 @@
 
 # Kwrite / Kate
 *.*.kate-swp
+
+## build files
+*.log
+*.tar.*
