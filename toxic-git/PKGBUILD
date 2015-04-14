@@ -5,7 +5,7 @@ _pkgname=toxic
 pkgname=$_pkgname-git
 pkgdesc='CLI Frontend in ncurses for Tox'
 license=('GPL3')
-pkgver=0.6.0.r10.g5ff1517
+pkgver=r1521.4d73f8b
 pkgrel=1
 depends=(
   'desktop-file-utils'

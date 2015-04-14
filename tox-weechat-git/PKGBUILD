@@ -3,7 +3,7 @@
 _pkgname=tox-weechat
 pkgname="${_pkgname}-git"
 pkgver=r249.g37e3b66
-pkgrel=1
+pkgrel=2
 
 pkgdesc='Tox protocol plugin for WeeChat'
 arch=('i686' 'x86_64')

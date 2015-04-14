@@ -3,7 +3,7 @@
 
 _pkgname=utox
 pkgname="${_pkgname}-git"
-pkgver=r1485.2c0b378
+pkgver=r1494.caa71b7
 pkgrel=1
 
 pkgdesc='Lightweight Tox client'
