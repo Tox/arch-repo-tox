@@ -2,7 +2,7 @@
 # Contributor: sekret, mail=$(echo c2VrcmV0QHBvc3Rlby5zZQo= | base64 -d)
 
 _pkgname=ratox
-pkgname=$_pkgname-git
+pkgname=ratox-git
 pkgver=0.1.r40.ge243b73
 pkgrel=1
 pkgdesc="FIFO based tox client"
