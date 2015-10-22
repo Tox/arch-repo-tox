@@ -1,55 +1,58 @@
-# Maintainer: Håvard Pettersson <mail@haavard.me>
+# $Id$
+# Maintainer: Felix Yan <felixonmars@archlinux.org>
+# Contributor: Håvard Pettersson <mail@haavard.me>
 # Contributor: naxuroqa <naxuroqa at gmail.com>
 # Contributor: Boohbah <boohbah at gmail.com>
 # Contributor: Kevin MacMartin <prurigro at gmail dot com>
 
 _pkgname=toxcore
 pkgname=toxcore-git
-pkgver=r3350.6a1efc3
+pkgver=3523
 pkgrel=1
 pkgdesc='Secure, configuration-free, P2P Skype replacement backend'
-arch=('i686' 'x86_64' 'arm' 'armv6h' 'armv7h')
+arch=('i686' 'x86_64')
 url='https://tox.chat'
 license=('GPL3')
-depends=(
-  'libconfig>=1.4'
-  'libsodium>=1.0'
-  'libvpx'
-  'opus'
-)
+depends=('libconfig' 'libsodium' 'libvpx' 'opus')
 makedepends=('git' 'check')
-optdepends=('qtox-git: qt-based Tox client'
-            'utox-git: lightweight Tox client'
-            'toxic-git: ncurses-based Tox client')
 conflicts=("$_pkgname")
 provides=("$_pkgname")
-replaces=("$_pkgname")
-source=("$_pkgname::git+https://github.com/irungentoo/toxcore.git")
-sha512sums=('SKIP')
+install=$pkgname.install
+source=("git+https://github.com/irungentoo/toxcore.git"
+        'toxcore.conf')
+sha512sums=('SKIP'
+            '71885e69f7b84955f6bdbf27b9e8196349cdd254b02b510433851bd218374d9c47aa7d3946dcc6a5cff6c8e705bc98d8a09de27039f60b8b088784cf8fa9d719')
 
 pkgver() {
-  cd $_pkgname
-  printf 'r%s.%s' "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  cd $pkgname
+  git rev-list --count HEAD
+}
+
+prepare() {
+  cd $pkgname
+  sed -i "s|/usr/local|/usr|" other/bootstrap_daemon/tox-bootstrapd.service
 }
 
 build() {
-  cd $_pkgname
+  cd $pkgname
   autoreconf -if
   ./configure \
     --prefix=/usr \
     --enable-daemon \
     --disable-ntox \
-    --disable-tests
+    --enable-tests
   make
 }
 
 check() {
-  cd $_pkgname
-  make check
+  cd $pkgname
+  make check || warning "Tests failed"
 }
 
 package() {
-  cd $_pkgname
+  cd $pkgname
   make DESTDIR="$pkgdir" install
+  install -Dm644 "$srcdir/toxcore.conf" "$pkgdir/usr/lib/sysusers.d/toxcore.conf"
   install -Dm644 ./other/bootstrap_daemon/tox-bootstrapd.service "$pkgdir/usr/lib/systemd/system/tox-bootstrapd.service"
+  install -Dm644 ./other/bootstrap_daemon/tox-bootstrapd.conf "$pkgdir/etc/tox-bootstrapd.conf"
 }
