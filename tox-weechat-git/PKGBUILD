@@ -11,7 +11,7 @@ url='https://github.com/haavardp/tox-weechat'
 license=('GPL3')
 
 depends=(
-  'tox-git'
+  'toxcore'
   'weechat>=1.0.1'
 )
 makedepends=('git' 'cmake')
