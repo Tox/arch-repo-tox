@@ -10,7 +10,7 @@ Instructions
     $ git clone https://github.com/Tox/arch-repo-tox
     $ cd arch-repo-tox
 
-    $ cd tox-git
+    $ cd toxcore-git
     $ makepkg -si
 
 This will build and install `toxcore` on your system. Repeat the last two steps
@@ -31,7 +31,7 @@ Contact
 If you need help or you would like to submit patches, please seek the
 appropriate channel below.
 
-IRC Channel:          #tox-dev @ chat.freenode.net
-Mailing list:         https://lists.tox.im/listinfo/development
-Github Issue tracker: https://github.com/Tox/arch-repo-tox/issues
+* IRC Channel:          #tox-dev @ chat.freenode.net
+* Mailing list:         dev@lists.tox.chat
+* Github Issue tracker: https://github.com/Tox/arch-repo-tox/issues
 
