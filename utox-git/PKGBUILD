@@ -20,7 +20,7 @@ depends=(
   'libxext'
   'libxrender'
   'openal'
-  'tox-git'
+  'toxcore'
   'v4l-utils'
 )
 makedepends=('git')

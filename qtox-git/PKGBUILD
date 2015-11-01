@@ -18,7 +18,7 @@ depends=(
   'openal'
   'qt5-svg'
   'qrencode'
-  'tox-git'
+  'toxcore'
 )
 makedepends=('git' 'qt5-tools')
 provides=("$_pkgname")

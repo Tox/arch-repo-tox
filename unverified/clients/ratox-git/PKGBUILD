@@ -10,7 +10,7 @@ arch=('i686' 'x86_64')
 url="http://ratox.2f30.org"
 license=('BSD')
 depends=(
-  'tox'
+  'toxcore'
 )
 makedepends=('git')
 provides=("$_pkgname")

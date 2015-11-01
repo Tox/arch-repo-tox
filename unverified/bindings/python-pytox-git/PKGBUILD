@@ -12,7 +12,7 @@ license=('GPL')
 makedepends=(git)
 depends=(
   'python'
-  'tox-git'
+  'toxcore'
 )
 source=("git://github.com/aitjcize/${_pkgname}")
 sha256sums=("SKIP")
