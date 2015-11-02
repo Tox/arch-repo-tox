@@ -5,27 +5,28 @@ _pkgname=toxic
 pkgname=toxic-git
 pkgdesc='CLI Frontend in ncurses for Tox'
 license=('GPL3')
-pkgver=r1521.4d73f8b
-pkgrel=2
+pkgver=0.6.1.r18.ge02cf1b
+pkgrel=3
 depends=(
   'desktop-file-utils'
   'freealut'
   'libnotify'
   'toxcore'
+  'curl'
 )
 makedepends=('git')
 conflicts=($_pkgname)
 provides=($_pkgname)
 arch=('i686' 'x86_64' 'arm' 'armv6h' 'armv7h')
-url=('http://tox.im')
-source=("${pkgname}::git+https://github.com/Tox/toxic.git")
+url=('https://tox.chat')
+source=("${pkgname}::git+https://github.com/JFreegman/toxic.git")
 sha512sums=('SKIP')
 
 install="${pkgname}.install"
 
 pkgver() {
   cd "$pkgname"
-  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
 build() {
@@ -37,4 +38,3 @@ package() {
   cd "$pkgname"
   make PREFIX=/usr DESTDIR="$pkgdir" install
 }
-
